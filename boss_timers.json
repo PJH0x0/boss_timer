@@ -1,0 +1,22 @@
+[
+  {
+    "map": "戈壁",
+    "level": "36",
+    "refresh_interval": "00:25:00"
+  },
+  {
+    "map": "戈壁",
+    "level": "37",
+    "refresh_interval": "00:35:00"
+  },
+  {
+    "map": "戈壁",
+    "level": "38",
+    "refresh_interval": "00:45:00"
+  },
+  {
+    "map": "戈壁",
+    "level": "42",
+    "refresh_interval": "00:35:00"
+  }
+]
