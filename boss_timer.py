@@ -216,6 +216,7 @@ class BossTimerApp:
             "next_refresh": None,
             "selected": False
         })
+        self.sort_bosses()
         self.refresh_tree()
 
     def get_selected_indices(self):
@@ -280,11 +281,14 @@ class BossTimerApp:
         return f"{h}:{m:02d}:{s:02d}"
 
     def sort_bosses(self):
+        """按地图名称分组，同地图内按 Boss 等级（数值）升序排序"""
         def get_sort_key(boss):
-            if boss["next_refresh"] is None:
-                return float('inf')
-            remaining = (boss["next_refresh"] - datetime.now()).total_seconds()
-            return max(remaining, 0)
+            map_name = boss["map"]
+            try:
+                level = int(boss["level"])
+            except (ValueError, TypeError):
+                level = float('inf')  # 无法转数字的放最后
+            return (map_name, level)
         self.bosses.sort(key=get_sort_key)
 
     def refresh_tree(self):
@@ -315,7 +319,7 @@ class BossTimerApp:
                 self.root.after(0, self.sort_and_refresh)
 
     def sort_and_refresh(self):
-        self.sort_bosses()
+        # self.sort_bosses()
         self.refresh_tree()
 
     def save_config(self):

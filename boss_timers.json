@@ -1,5 +1,15 @@
 [
   {
+    "map": "1沼泽",
+    "level": "56",
+    "refresh_interval": "00:20:00"
+  },
+  {
+    "map": "2沼泽",
+    "level": "57",
+    "refresh_interval": "00:30:00"
+  },
+  {
     "map": "戈壁",
     "level": "36",
     "refresh_interval": "00:25:00"
